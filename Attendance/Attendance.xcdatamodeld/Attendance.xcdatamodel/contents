@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Professor" representedClassName=".Professor" syncable="YES" codeGenerationType="category">
+        <attribute name="passwordPofessor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="professorName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="professorSurname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usernameProfessor" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subjects" inverseName="subjectProfessor" inverseEntity="Subjects" syncable="YES"/>
+    </entity>
+    <entity name="ProfessorStudents" representedClassName=".ProfessorStudents" syncable="YES" codeGenerationType="category">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itWas" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="studentID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="studentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="studentSurname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="today" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="subjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subjects" inverseName="students" inverseEntity="Subjects" syncable="YES"/>
+    </entity>
+    <entity name="Students" representedClassName=".Students" syncable="YES" codeGenerationType="category">
+        <attribute name="passwordStudent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pattern" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileImage" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="school" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="studentID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="studentSurname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="studnetName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="university" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usernameStudent" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Subjects" representedClassName=".Subjects" syncable="YES" codeGenerationType="category">
+        <attribute name="subjectName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProfessorStudents" inverseName="subjects" inverseEntity="ProfessorStudents" syncable="YES"/>
+        <relationship name="subjectProfessor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Professor" inverseName="subjects" inverseEntity="Professor" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Professor" positionX="-900" positionY="35" width="128" height="118"/>
+        <element name="ProfessorStudents" positionX="-513" positionY="36" width="128" height="148"/>
+        <element name="Students" positionX="-774" positionY="197" width="128" height="178"/>
+        <element name="Subjects" positionX="-711" positionY="74" width="128" height="88"/>
+    </elements>
+</model>
